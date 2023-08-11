@@ -25,15 +25,17 @@ void Print3DMassive(int[,,] massive)
 int[,,] Create3DMassive(int size)
 {
     int[,,] massive = new int[size, size, size];
-    int value = 10;
+    Random r = new Random();
+    List<int> list = Enumerable.Range(10, 90).OrderBy(x => r.Next()).ToList();
+    int z = 0;
     for(int i = 0; i < size; i++)
     {
         for(int j = 0; j < size; j++)
         {
             for(int k = 0; k < size; k++)
             {
-                massive[i, j, k] = value;
-                value++;
+                massive[i, j, k] = list[z];
+                z++;
             }
         }
     }
